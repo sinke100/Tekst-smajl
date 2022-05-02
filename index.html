@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css"/>
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <Title>Tekst u smajliće</Title>
+    </head>
+
+  <body>
+    <h1>Upiši bilo koji tekst!</h1>  
+    <h1><label id='smajl'></label></h1>
+    <h1><label id='org'></label></h1>
+    
+    <py-script>
+a = input()
+a = a.encode()
+a = [chr(i+127991) for i in list(a)]
+pyscript.write('smajl',''.join(a))
+b = [ord(i)-127991 for i in a]
+b = bytes(b).decode()
+pyscript.write('org',b)
+    </py-script>
+  </body>
+</html>
